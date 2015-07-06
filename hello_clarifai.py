@@ -37,8 +37,8 @@ To get started:
 
 '''
 
-client_id = ''  # 'ENTER YOUR CLIENT ID HERE'
-client_secret = ''  # 'ENTER YOU CLIENT SECRET HERE'
+client_id = ''  # ENTER YOUR CLIENT ID HERE
+client_secret = ''  # ENTER YOU CLIENT SECRET HERE
 clarifai_api = ClarifaiApi(client_id, client_secret)
 
 
@@ -72,8 +72,8 @@ def main():
     #
     image_directory = os.path.dirname(os.path.realpath(__file__)) + '/images'
     encoded_image_results = clarifai_api.tag_images([
-	    open(image_directory + '/bonsai.jpg'),
-	    open(image_directory + '/dog.jpg')
+        open(image_directory + '/bonsai.jpg'),
+        open(image_directory + '/dog.jpg')
     ])
     print 'Results for bonsai and puppy images:'
     pprint.pprint(summarize_tag_results(encoded_image_results))
@@ -96,14 +96,17 @@ def summarize_tag_results(tag_results):
         for images: [
                         [(class, probability),...], # image 1
                         [(class, probability),...], # image 2
-                        [('error': error_msg]       # error case
+                        [('error', error_msg)],     # error case
+                        ...
                     ]
 
         for videos: [
                         [  # video 1
-                            (timestamp1, [(class, probability),...]),
-                            (timestamp2, [(class, probability),...])
-                        ]
+                            (timestamp1, [(class, probability),...]), # tags for timestamp1
+                            (timestamp2, [(class, probability),...]), # tags for timestamp2
+                            ...
+                        ],
+                        ...
                     ]
     """
     results_summary = []
