@@ -4,7 +4,7 @@ Example scripts for various deep learning APIs.
 
 ### Clarifai
 
-### Dextro
+### CloudSight
 
-### Microsoft's Azure Deep Learning framework
+### Dextro
 

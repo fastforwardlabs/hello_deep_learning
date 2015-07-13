@@ -32,9 +32,6 @@ To get started:
 
     6.   Copy the 'Client ID' and 'Client Secret' from that application into the script below
 
-
-    7.   Run `pip install -r requirements.txt` to install python dependencies
-
 '''
 
 client_id = ''  # ENTER YOUR CLIENT ID HERE
@@ -71,10 +68,8 @@ def main():
     # - Pass a list of python file objects to the tag_images function on clarifai's python client
     #
     image_directory = os.path.dirname(os.path.realpath(__file__)) + '/images'
-    encoded_image_results = clarifai_api.tag_images([
-        open(image_directory + '/bonsai.jpg'),
-        open(image_directory + '/dog.jpg')
-    ])
+    with open(image_directory + '/bonsai.jpg') as bonsai, open(image_directory + '/dog.jpg') as dog:
+        encoded_image_results = clarifai_api.tag_images([bonsai, dog])
     print 'Results for bonsai and puppy images:'
     pprint.pprint(summarize_tag_results(encoded_image_results))
 
