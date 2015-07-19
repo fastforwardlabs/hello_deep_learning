@@ -32,6 +32,7 @@ To get started:
 
     6.   Copy the 'Client ID' and 'Client Secret' from that application into the script below
 
+More information about Clarifai's API can be found here: https://developer.clarifai.com/docs/
 '''
 
 client_id = ''  # ENTER YOUR CLIENT ID HERE

@@ -13,10 +13,11 @@ To get started:
 
     2.   Create a new CloudSight 'project' at:
 
-         http://cloudsightapi.com/dashboard
+             http://cloudsightapi.com/dashboard
 
     3.   Copy the 'API Key' into the script below
 
+More information about CloudSight's API can be found here: http://cloudsight.readme.io/v1.0/docs
 '''
 
 api_key = ''  # ENTER YOUR API KEY HERE
