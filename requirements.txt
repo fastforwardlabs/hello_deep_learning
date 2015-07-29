@@ -1,3 +1,4 @@
 git+git://github.com/Clarifai/Clarifai_py.git
 Pillow
 requests
+MetaMindApi

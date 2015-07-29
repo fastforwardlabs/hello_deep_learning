@@ -1,6 +1,7 @@
 import requests
 import time
 import os
+from urls import apple_pie_url
 
 '''
 This is a 'hello world' script for the CloudSight image recognition API.
@@ -30,7 +31,6 @@ api_base_url = 'https://api.cloudsightapi.com'
 
 
 def main():
-    apple_pie_url = 'https://upload.wikimedia.org/wikipedia/commons/3/32/Apple_Pie.JPG'
     image_directory = os.path.dirname(os.path.realpath(__file__)) + '/images'
 
     # CloudSight's API works in two steps
@@ -42,7 +42,7 @@ def main():
     #
 
     # Post a url for an image to CloudSight
-    zebra_token = get_token_for_url_image(apple_pie_url)
+    zepie_token = get_token_for_url_image(apple_pie_url)
 
     # Post an encoded image to CloudSight
     with open(image_directory + '/bonsai.jpg', 'rb') as bonsai:
@@ -55,8 +55,8 @@ def main():
 
     # Use the tokens to get the results for each image
 
-    zebra_results = get_results_for_token(zebra_token)
-    print zebra_results
+    pie_results = get_results_for_token(zepie_token)
+    print pie_results
 
     bonsai_results = get_results_for_token(bonsai_token)
     print bonsai_results

@@ -1,6 +1,7 @@
-from clarifai.client import ClarifaiApi
 import os
 import pprint
+from clarifai.client import ClarifaiApi
+from urls import apple_pie_url, video_url, zebra_url
 
 '''
 This is a 'hello world' script for the Clarifai tagging API for images and videos.
@@ -41,11 +42,6 @@ clarifai_api = ClarifaiApi(client_id, client_secret)
 
 
 def main():
-
-    zebra_url = 'https://upload.wikimedia.org/wikipedia/commons/f/f0/Zebra_standing_alone_crop.jpg'
-    apple_pie_url = 'https://upload.wikimedia.org/wikipedia/commons/3/32/Apple_Pie.JPG'
-    video_url = 'https://s3.amazonaws.com/clarifai-tmp/demo-videos/GoPro+Dolomites+2013-SD.mp4'
-
 
     # Clarifai's tag endpoint returns tags for the image/video along with the probabilities that those tags are correct
     # For videos, Clarifai provides a list of tags and their respective probabilities for each second of the video

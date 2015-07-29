@@ -1,5 +1,6 @@
 import requests
 import pprint
+from urls import video_url
 
 '''
 This is a 'hello world' script for the Dextro video analysis API.
@@ -36,7 +37,6 @@ def main():
 
     ## General Video Categorization
 
-    video_url = 'https://s3.amazonaws.com/clarifai-tmp/demo-videos/GoPro+Dolomites+2013-SD.mp4'
     response = categorize_video(video_url)
     print 'General video categorization:'
     print_video_categorization_response(response)
