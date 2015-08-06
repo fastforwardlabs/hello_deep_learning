@@ -37,9 +37,9 @@ def main():
 
     ## General Video Categorization
 
-    response = categorize_video(video_url)
+    response = categorize_video(video_url, api_key, callback_url)
     print 'General video categorization:'
-    print_video_categorization_response(response)
+    print_video_categorization_response(response, callback_url)
 
 
     ## Custom Video Categorization
@@ -55,14 +55,16 @@ def main():
         584   # outdoor
     ]
 
-    response = custom_categorize_video(video_url, category_ids)
+    response = custom_categorize_video(video_url, category_ids, api_key, callback_url)
     print 'Custom video categorization:'
     print_video_categorization_response(response)
 
 
-def categorize_video(video_url):
+def categorize_video(video_url, api_key, callback_url):
     """
     :param video_url: The URL of the video to be sent to Dextro for analysis
+    :param api_key: Your Dextro api key
+    :param callback_url: The url to which Dextro should post the results of its analysis
     :return: A python dict representing Dextro's JSON response to the request.
     """
     request_data = {
@@ -75,10 +77,12 @@ def categorize_video(video_url):
     r = requests.post(video_categorization, data=request_data)
     return r.json()
 
-def custom_categorize_video(video_url, category_ids):
+def custom_categorize_video(video_url, category_ids, api_key, callback_url):
     """
     :param video_url: The URL of the video to be sent to Dextro for analysis
     :param category_ids: A list of ints or strings representing Dextro categories.
+    :param api_key: Your Dextro api key
+    :param callback_url: The url to which Dextro should post the results of its analysis
     :return: A python dict representing Dextro's JSON response to the request.
     """
     request_data = {
@@ -92,11 +96,11 @@ def custom_categorize_video(video_url, category_ids):
     r = requests.post(custom_video_categorization, data=request_data)
     return r.json()
 
-def print_video_categorization_response(response):
+def print_video_categorization_response(response, callback_url):
     print 'Response from Dextro: ', response
     if 'request_id' in response and 'eta' in response:
         print 'Results will be available at ' + callback_url + '/' + response['request_id']
-        print 'Dextro predicts that they will arive in ' + str(response['eta']) + ' seconds.\n'
+        print 'Dextro predicts that they will arrive in ' + str(response['eta']) + ' seconds.\n'
 
 if __name__ == "__main__":
     main()
